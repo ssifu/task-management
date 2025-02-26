@@ -1,4 +1,13 @@
+/*
+
+Reference ChatGpt Link: https://chatgpt.com/share/67bf36da-e00c-8004-b9d6-3e54efa15f89 (How to fix id and createdAt not getting automatically added to the json)
+Before id and createdAt was in the parameter constructor and after doing POST id and createdAt field was null.
+
+*/
+
 package com.samiulsifat.task_management.model;
+
+import jakarta.validation.constraints.NotNull;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -6,6 +15,8 @@ import java.util.UUID;
 
 public class User {
     String id, createdAt;
+
+    @NotNull
     String username, email, password;
 
     public User() {

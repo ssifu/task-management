@@ -5,16 +5,19 @@ import com.samiulsifat.task_management.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService implements UserRepository {
 
-    List<User> users = new ArrayList<>();
+//    List<User> users = new ArrayList<>();
+    Map<String, User> users = new HashMap<>();
 
     @Override
-    public void create(User user) {
-        users.add(user);
+    public void register(User user) {
+        users.put(user.getUsername(), user);
     }
 
     @Override

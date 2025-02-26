@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface UserRepository {
-    void create(User user);
+    void register(User user);
     List<User> getAllUser();
 }

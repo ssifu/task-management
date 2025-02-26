@@ -4,6 +4,7 @@ import com.samiulsifat.task_management.model.User;
 import com.samiulsifat.task_management.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +29,14 @@ public class UserController {
         return (CsrfToken) request.getAttribute("_csrf");
     }
 
-    @PostMapping("/users")
-    public User createUser(@RequestBody User user) {
-        userService.create(user);
+    @PostMapping("/users/login")
+    public String loginUser(@RequestBody @Valid User user) {
+
+    }
+
+    @PostMapping("/users/register")
+    public User registerUser(@RequestBody @Valid User user) {
+        userService.register(user);
         return user;
     }
 
