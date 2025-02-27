@@ -35,9 +35,12 @@ public class UserController {
     }
 
     @PostMapping("/users/register")
-    public User registerUser(@RequestBody @Valid User user) {
+    public String registerUser(@RequestBody @Valid User user) {
+        if (userService.getUsers().containsKey(user.getUsername())) {
+            return "Registration Failed: username already exists";
+        }
         userService.register(user);
-        return user;
+        return "Registration Success: User " + user.getUsername() + " has been created.";
     }
 
 }

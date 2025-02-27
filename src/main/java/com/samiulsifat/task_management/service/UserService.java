@@ -24,4 +24,8 @@ public class UserService implements UserRepository {
     public List<User> getAllUser() {
         return users;
     }
+
+    public Map<String, User> getUsers() {
+        return users;
+    }
 }

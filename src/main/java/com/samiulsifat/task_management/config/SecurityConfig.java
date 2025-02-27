@@ -20,11 +20,9 @@ public class SecurityConfig {
         http
                 .csrf(customizer -> customizer.disable())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/users/register")
+                        .requestMatchers("/users/register", "/users/login")
                         .permitAll()
-                        .requestMatchers("/users/login")
-                        .permitAll()
-                        .requestMatchers("/users/logout")
+                        .anyRequest()
                         .authenticated()
                 );
 
